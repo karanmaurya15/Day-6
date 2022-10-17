@@ -4,32 +4,16 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the Number");
-            double num = Convert.ToDouble(Console.ReadLine());
-            int sum = 0;
-            for (int i = 1; i < num; i++)
+            Console.WriteLine("Enter a Number to reverse");
+            int Num = Convert.ToInt32(Console.ReadLine());
+            int Reverse = 0;
+            while (Num > 0)
             {
-                if (num % i == 0)
-                {
-                    int[] arr = { i };
-                    foreach (int x in arr)
-                    {
-                        sum += i;
-
-                    }
-
-                }
+                int remainder = Num % 10;
+                Reverse = (Reverse * 10) + remainder;
+                Num = Num / 10;
             }
-            Console.WriteLine($"Sum of its factors are " + sum);
-            if (sum == num)
-            {
-                Console.WriteLine("It is a perfect Number");
-            }
-            else
-            {
-                Console.WriteLine("It is not a Perfect Number");
-            }
-           
+            Console.WriteLine("Reverse No. is {0}", Reverse);
         }
     }
 }
