@@ -1,19 +1,25 @@
-﻿namespace Logicalprogram
+﻿using System.Diagnostics;
+using System.IO.Pipes;
+using System.Net.Security;
+
+namespace Logicalprogram
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a Number to reverse");
-            int Num = Convert.ToInt32(Console.ReadLine());
-            int Reverse = 0;
-            while (Num > 0)
+            Console.WriteLine("Enter the Number");
+            int num = Convert.ToInt32(Console.ReadLine());
+            
+            for (int i = 2; i <= num/2; i++)
             {
-                int remainder = Num % 10;
-                Reverse = (Reverse * 10) + remainder;
-                Num = Num / 10;
+                if (num % i == 0)
+                {
+                    Console.WriteLine(num + " is Not Prime Number");
+                    return;
+                }
             }
-            Console.WriteLine("Reverse No. is {0}", Reverse);
-        }
+            Console.WriteLine(num + " is Prime Number");
+        } 
     }
 }
