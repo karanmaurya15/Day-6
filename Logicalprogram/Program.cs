@@ -6,18 +6,17 @@ namespace Logicalprogram
     {
         static void Main(string[] args)
         {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[6];
+            var random = new Random();
 
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < stringChars.Length; i++)
             {
-                Thread.Sleep(1);
+                stringChars[i] = chars[random.Next(chars.Length)];
             }
-            stopwatch.Stop();
 
-            Console.WriteLine($"Time elapsed:  {stopwatch.Elapsed}");
-            
-               
+            var finalString = new String(stringChars);
+            Console.WriteLine(finalString);
         }
     }
 }
